@@ -19,29 +19,29 @@
 
 ### Association
 
-* has_many :item
-* has_many :comments
-* has_many :orders
+* has_one :item
+* has_one :comments
+* has_one :orders
 
 ## item table
 
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
-| name                                | string     | null: false                    |
+| itemname                            | string     | null: false                    |
 | catch_copy                          | text       | null: false                    |
 | user                                | references | null: false, foreign_key: true |
 | category                            | string     | null: false                    |
 | condition                           | string     | null: false                    |
 | send                                | string     | null: false                    |
 | place                               | string     | null: false,                   |
-| peri                                | string     | null: false                    |
+| day                                 | string     | null: false                    |
 | price                               | integer    | null: false,                   |
 
 
 ### Association
 
 - belongs_to :user
-- has_many :comments
+- has_one :comments
 
 ## comments table
 
@@ -64,12 +64,8 @@
 
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
-| item                                | references | null: false, foreign_key: true |
+| itemname                            | string     | null: false                    |
 | user                                | references | null: false, foreign_key: true |
-| card number                         | string     | null: false                    |
-| date of expiry                      | date       | null: false                    |
-| security                            | string     | null: false                    |
-| post                                | string     | null: false                    |
 | place1                              | string     | null: false                    |
 | place2                              | string     | null: false                    |
 | place3                              | string     | null: false                    |
@@ -78,4 +74,4 @@
 ### Association
 
 - belongs_to :user
-- has_many :comments
+- has_one :comments
