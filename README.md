@@ -20,7 +20,7 @@
 ### Association
 
 * has_many :items
-* has_many :history
+* has_many :histories
 
 ## items table
 
@@ -42,7 +42,7 @@
 - belongs_to :user
 - has_one :history
 
-## history table
+## histories table
 
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
@@ -53,7 +53,7 @@
 
 - belongs_to :item
 - belongs_to :user
-- has_one :orders
+- has_one :order
 
 
 
@@ -63,12 +63,12 @@
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
 | history                             | references | null: false, foreign_key: true |
-| post_code                           | integer    | null: false                    |
-| prefectures                         | string     | null: false                    |
+| post_code                           | string     | null: false                    |
+| prefectures_id                      | integer    | null: false                    |
 | cities                              | string     | null: false                    |
-| banti                               | integer    | null: false                    |
+| banti                               | string     | null: false                    |
 | building_name                       | string     | null: false                    |
-| tel                                 | integer    | null: false                   |
+| tel                                 | string     | null: false                    |
 
 ### Association
 
