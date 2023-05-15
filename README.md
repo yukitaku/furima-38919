@@ -19,35 +19,33 @@
 
 ### Association
 
-* has_one :item
-* has_one :comments
-* has_one :orders
+* has_many :items
+* has_many :histories
 
-## item table
+## items table
 
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
-| itemname                            | string     | null: false                    |
+| item_name                           | string     | null: false                    |
 | catch_copy                          | text       | null: false                    |
 | user                                | references | null: false, foreign_key: true |
-| category                            | string     | null: false                    |
-| condition                           | string     | null: false                    |
-| send                                | string     | null: false                    |
-| place                               | string     | null: false,                   |
-| day                                 | string     | null: false                    |
-| price                               | integer    | null: false,                   |
+| category_id                         | integer    | null: false                    |
+| condition_id                        | integer    | null: false                    |
+| send_id                             | integer    | null: false                    |
+| place_id                            | integer    | null: false                    |
+| period_id                           | integer    | null: false                    |
+| price                               | integer    | null: false                    |
 
 
 ### Association
 
 - belongs_to :user
-- has_one :comments
+- has_one :history
 
-## comments table
+## histories table
 
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
-| content     | text       | null: false                    |
 | item        | references | null: false, foreign_key: true |
 | user        | references | null: false, foreign_key: true |
 
@@ -55,7 +53,7 @@
 
 - belongs_to :item
 - belongs_to :user
-- belongs_to :orders
+- has_one :order
 
 
 
@@ -64,14 +62,14 @@
 
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
-| itemname                            | string     | null: false                    |
-| user                                | references | null: false, foreign_key: true |
-| place1                              | string     | null: false                    |
-| place2                              | string     | null: false                    |
-| place3                              | string     | null: false                    |
-| place4                              | string     | null: false                    |
+| history                             | references | null: false, foreign_key: true |
+| post_code                           | string     | null: false                    |
+| place_id                            | integer    | null: false                    |
+| city                                | string     | null: false                    |
+| banti                               | string     | null: false                    |
+| building_name                       | string     |                                |
 | tel                                 | string     | null: false                    |
+
 ### Association
 
-- belongs_to :user
-- has_one :comments
+- belongs_to :history
