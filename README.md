@@ -64,10 +64,10 @@
 |-------------------------------------|------------|--------------------------------|
 | history                             | references | null: false, foreign_key: true |
 | post_code                           | string     | null: false                    |
-| prefectures_id                      | integer    | null: false                    |
-| cities                              | string     | null: false                    |
+| place_id                            | integer    | null: false                    |
+| city                                | string     | null: false                    |
 | banti                               | string     | null: false                    |
-| building_name                       | string     | null: false                    |
+| building_name                       | string     |                                |
 | tel                                 | string     | null: false                    |
 
 ### Association
