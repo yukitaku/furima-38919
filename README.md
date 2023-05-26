@@ -31,7 +31,7 @@
 | user                                | references | null: false, foreign_key: true |
 | category_id                         | integer    | null: false                    |
 | condition_id                        | integer    | null: false                    |
-| send_id                             | integer    | null: false                    |
+| okuru_id                             | integer    | null: false                    |
 | place_id                            | integer    | null: false                    |
 | period_id                           | integer    | null: false                    |
 | price                               | integer    | null: false                    |
