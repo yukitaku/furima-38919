@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to :place
   belongs_to :okuru
 
-
+  validates :image, presence: true
   validates :item_name,length: { maximum: 40 },presence: true
   validates :catch_copy,length: { maximum: 1000 },presence: true
   validates :category_id, numericality: { other_than: 1 , message: "can't be blank"} ,presence: true
@@ -17,5 +17,5 @@ class Item < ApplicationRecord
   validates :period_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
   validates :place_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
   validates :okuru_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
-  validates :price,format: { with:/\A[0-9]+\z/,message: '半角数字を使用してください' },  presence: true
+  validates :price,numericality:{ greater_than_or_equal_to: 300, less_than: 9999999,with:/\A[0-9]+\z/,message: '300~9999999のの半角数字を使用してください' },  presence: true
 end
