@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def index
 
-    @items = Item.includes(:user)
+    # @items = Item.includes(:user)
   end
 
   def new
@@ -19,28 +19,28 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-  def show
+  # def show
 
-  end
+  # end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-    if @item.update(item_params)
-      redirect_to item_path(@item)
-    else
-      render :edit
-    end
-  end
+  # def update
+  #   if @item.update(item_params)
+  #     redirect_to item_path(@item)
+  #   else
+  #     render :edit
+  #   end
+  # end
 
-  def destroy
-    if @item.destroy
-      redirect_to root_path
-    else
-      redirect_to root_path
-    end
-  end
+  # def destroy
+  #   if @item.destroy
+  #     redirect_to root_path
+  #   else
+  #     redirect_to root_path
+  #   end
+  # end
 
 
   private
@@ -49,9 +49,9 @@ class ItemsController < ApplicationController
    params.require(:item).permit(:item_name, :catch_copy, :category_id, :condition_id, :period_id, :place_id,:okuru_id,:price, :image).merge(user_id: current_user.id)
   end
 
-  def set_item
-   @item = Item.find(params[:id])
-  end
+  # def set_item
+  #  @item = Item.find(params[:id])
+  # end
 
   def contributor_confirmation
    redirect_to root_path unless current_user == @item.user
