@@ -17,5 +17,5 @@ class Item < ApplicationRecord
   validates :period_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
   validates :place_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
   validates :okuru_id, numericality: { other_than: 1 , message: "can't be blank"}, presence: true
-  validates :price,numericality:{ greater_than_or_equal_to: 300, less_than: 10000000,only_integer: true,message: '300~9999999のの半角数字を使用してください' },  presence: true
+  validates :price,numericality:{ only_integer: true,greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 ,message: '300~9999999のの半角数字を使用してください' },  presence: true
 end
