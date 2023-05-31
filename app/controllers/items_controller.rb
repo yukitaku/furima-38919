@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   def index
 
-    @items = Item.includes(:user)
+    @items = Item.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -49,9 +49,9 @@ class ItemsController < ApplicationController
    params.require(:item).permit(:item_name, :catch_copy, :category_id, :condition_id, :period_id, :place_id,:okuru_id,:price, :image).merge(user_id: current_user.id)
   end
 
-  # def set_item
-  #  @item = Item.find(params[:id])
-  # end
+   def set_item
+    @item = Item.find(params[:id])
+   end
 
   def contributor_confirmation
    redirect_to root_path unless current_user == @item.user
