@@ -19,12 +19,11 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+  
    def show
-    @item = Item.find(params[:id])
    end
 
    def edit
-    @item = Item.find(params[:id])
     if @item.user_id == current_user.id
     else
       redirect_to root_path
@@ -59,7 +58,4 @@ class ItemsController < ApplicationController
      @item = Item.find(params[:id])
     end
 
-  def contributor_confirmation
-   redirect_to root_path unless current_user == @item.user
-  end
 end
