@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
 
   def create
     @order2 = Order2.new(order_params)
-
+    @item = Item.find(params[:item_id])
     if @order2.valid?
         pay_item
        @order2.save
