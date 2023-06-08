@@ -40,7 +40,7 @@ RSpec.describe Order2, type: :model do
       end
       it '電話番号が11番桁以内かつ-なしであれば保存できる' do
         @order2.tel = '12341234123'
-        expect(@orde2).to be_valid
+        expect(@order2).to be_valid
 
       end
     end
