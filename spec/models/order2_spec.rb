@@ -118,6 +118,3 @@ RSpec.describe Order2, type: :model do
     end
   end
 end
-#binding.pry
-# Post code is invalid. Include hyphen(-)
-# Post code can't be blank
