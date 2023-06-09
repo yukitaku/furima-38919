@@ -132,17 +132,18 @@
       <li class='list'>
       
         <%= link_to item_path(item) do %>
+        
         <div class='item-img-content'>
           <%= image_tag item.image.variant(resize: '500x500'), class: "item-img" if item.image.attached? %>
 
-          <%# 商品が売れていればsold outを表示しましょう %>
-          <%# <% if item= nil %>
-          <%# <div class='sold-out'>
-            <span>Sold Out!!</span>
-          </div>
-          <% end %> 
 
-          <%# //商品が売れていればsold outを表示しましょう %>
+       <% if item.history != nil %>
+      <div class='sold-out'>
+        <span>Sold Out!!</span>
+      </div>
+      <% end %> 
+
+         
         
         </div>
          <% end %>
@@ -160,6 +161,7 @@
         </div>
       </li>
     <% end %>
+
     
        <% if @items.blank? then %>
       <li class='list'>
