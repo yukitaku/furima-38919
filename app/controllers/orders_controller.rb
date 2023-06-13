@@ -4,11 +4,9 @@ class OrdersController < ApplicationController
 
   def index
     @order2 = Order2.new
-    if current_user.id == @item.user_id
-      redirect_to root_path
-    if @item.order != nil
-      redirect_to root_path
-    end
+     if current_user.id == @item.user_id||@item.history != nil
+       redirect_to root_path
+
   end
   end
 
