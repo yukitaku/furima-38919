@@ -5,11 +5,11 @@ class Order2
  with_options presence: true do
   validates :user_id
   validates :item_id
-  validates :post_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
-  validates :place_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :post_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'が無効です' }
+  validates :place_id, numericality: { other_than: 1, message: "を入力してください" }
   validates :city
   validates :banti
-  validates :tel, format: { with: /\A[0-9]{10,11}\z/, message: 'is invalid' }
+  validates :tel, format: { with: /\A[0-9]{10,11}\z/, message: 'が無効です' }
    validates :token
   end
 

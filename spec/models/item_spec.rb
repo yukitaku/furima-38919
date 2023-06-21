@@ -114,7 +114,7 @@ RSpec.describe Item, type: :model do
   it "発送までの日数未選択では登録できない" do
   @item.okuru_id = 1
   @item.valid?
-  expect(@item.errors.full_messages).to include("Okuru can't be blank")
+  expect(@item.errors.full_messages).to include("Okuru を入力してください")
 
   end
 
