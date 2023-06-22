@@ -24,7 +24,7 @@ RSpec.describe Item, type: :model do
 
   @item.image = nil
   @item.valid?
-  expect(@item.errors.full_messages).to include("Image can't be blank")
+  expect(@item.errors.full_messages).to include("画像を入力してください")
 
   end
 
@@ -32,14 +32,14 @@ RSpec.describe Item, type: :model do
   @item.item_name = ""
   @item.valid?
   
-  expect(@item.errors.full_messages).to include("Item name can't be blank")
+  expect(@item.errors.full_messages).to include("商品名を入力してください")
 
   end
 
   it "商品の説明無しだとできない" do
   @item.catch_copy = ""
   @item.valid?
-  expect(@item.errors.full_messages).to include("Catch copy can't be blank")
+  expect(@item.errors.full_messages).to include("キャッチコピーを入力してください")
   
   end
 
@@ -49,14 +49,14 @@ RSpec.describe Item, type: :model do
   @item.category_id = nil
   @item.valid?
   
-  expect(@item.errors.full_messages).to include("Category can't be blank")
+  expect(@item.errors.full_messages).to include("カテゴリーを指定してください")
 
   end
 
   it "カテゴリー未選択では登録できない" do
   @item.category_id = 1
   @item.valid?
-  expect(@item.errors.full_messages).to include("Category can't be blank")
+  expect(@item.errors.full_messages).to include("カテゴリーを指定してください")
 
   end
 
@@ -65,63 +65,63 @@ RSpec.describe Item, type: :model do
   @item.condition_id = nil
   @item.valid?
 
-  expect(@item.errors.full_messages).to include("Condition can't be blank")
+  expect(@item.errors.full_messages).to include("商品の状態を指定してください")
 
   end
 
   it "商品の状態未選択では登録できない" do
   @item.condition_id = 1
   @item.valid?
-  expect(@item.errors.full_messages).to include("Condition can't be blank")
+  expect(@item.errors.full_messages).to include("商品の状態を指定してください")
 
   end
 
   it "配送料の負担の情報がないと保存できない" do
   @item.period_id = nil
   @item.valid?
-  expect(@item.errors.full_messages).to include("Period can't be blank")
+  expect(@item.errors.full_messages).to include("配送料の負担を指定してください")
 
   end
 
   it "配送料の負担未選択では登録できない" do
   @item.period_id = 1
   @item.valid?
-  expect(@item.errors.full_messages).to include("Period can't be blank")
+  expect(@item.errors.full_messages).to include("配送料の負担を指定してください")
 
   end
 
   it "発送元の地域の情報がないと保存できない" do
   @item.place_id = nil
   @item.valid?
-  expect(@item.errors.full_messages).to include("Place can't be blank")
+  expect(@item.errors.full_messages).to include("発送元の地域を指定してください")
 
   end
 
   it "発送元の地域未選択では登録できない" do
   @item.place_id = 1
   @item.valid?
-  expect(@item.errors.full_messages).to include("Place can't be blank")
+  expect(@item.errors.full_messages).to include("発送元の地域を指定してください")
 
   end
 
   it "発送までの日数の情報がないと保存できない" do
   @item.okuru_id = nil
   @item.valid?
-  expect(@item.errors.full_messages).to include("Okuru can't be blank")
+  expect(@item.errors.full_messages).to include("発送までの日数を指定してください")
 
   end
 
   it "発送までの日数未選択では登録できない" do
   @item.okuru_id = 1
   @item.valid?
-  expect(@item.errors.full_messages).to include("Okuru を入力してください")
+  expect(@item.errors.full_messages).to include("発送までの日数を指定してください")
 
   end
 
   it "価格の情報がないとアイテムは保存できない" do
   @item.price = ""
   @item.valid?
-  expect(@item.errors.full_messages).to include("Price 300~9999999のの半角数字を使用してください")
+  expect(@item.errors.full_messages).to include("販売価格を入力してください")
 
   end
 
@@ -129,14 +129,14 @@ RSpec.describe Item, type: :model do
   @item.price = 1
   @item.valid?
 
-  expect(@item.errors.full_messages).to include("Price 300~9999999のの半角数字を使用してください")
+  expect(@item.errors.full_messages).to include("販売価格は300~9999999のの半角数字を使用してください")
 
   end
   it "価格が少数だと出品できない" do
     @item.price = 1.1
     @item.valid?
   
-    expect(@item.errors.full_messages).to include("Price 300~9999999のの半角数字を使用してください")
+    expect(@item.errors.full_messages).to include("販売価格は300~9999999のの半角数字を使用してください")
   
     end
 
@@ -144,7 +144,7 @@ RSpec.describe Item, type: :model do
   @item.price = 10000001
   @item.valid?
 
-  expect(@item.errors.full_messages).to include("Price 300~9999999のの半角数字を使用してください")
+  expect(@item.errors.full_messages).to include("販売価格は300~9999999のの半角数字を使用してください")
 
   end
 
@@ -152,20 +152,20 @@ RSpec.describe Item, type: :model do
   @item.price = "あ"
   @item.valid?
 
-  expect(@item.errors.full_messages).to include("Price 300~9999999のの半角数字を使用してください")
+  expect(@item.errors.full_messages).to include("販売価格は300~9999999のの半角数字を使用してください")
 
   end
   it "価格が全角数字では登録できないこと" do
     @item.price = "３００"
     @item.valid?
   
-    expect(@item.errors.full_messages).to include("Price 300~9999999のの半角数字を使用してください")
+    expect(@item.errors.full_messages).to include("販売価格は300~9999999のの半角数字を使用してください")
   end
 
   it "userが紐づていないと登録できない" do
     @item.user = nil
     @item.valid?
-    expect(@item.errors.full_messages).to include('User must exist')
+    expect(@item.errors.full_messages).to include('Userを入力してください')
   end
  end
 end

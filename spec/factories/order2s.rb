@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :order2 do
 
     post_code { '123-4560' }
-    place_id { 1 }
+    place_id { 2 }
     city {"横浜市緑区"}
     banti { Faker::Address.street_address}
     building_name {Faker::Address.street_address }
